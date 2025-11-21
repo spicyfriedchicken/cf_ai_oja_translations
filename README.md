@@ -42,11 +42,29 @@ Optionally coordinates ASR → Translation → Delivery.
 ## Repository Structure
 
 ```
-/
+.
 ├── README.md
-├── frontend/
+├── wrangler.toml
 ├── worker/
-└── workflows/
+│   ├── index.ts            # Main Worker entry
+│   ├── router.ts           # Request routing and Realtime handling
+│   ├── asr.ts              # Whisper/ASR client
+│   ├── translate.ts        # LLM translation client
+│   ├── session-do.ts       # Durable Object for sessions
+│   └── types.ts
+└── web/
+    ├── package.json
+    ├── src/
+    │   ├── main.tsx        # App entry
+    │   ├── App.tsx         # UI shell
+    │   ├── components/
+    │   │   ├── MicButton.tsx
+    │   │   ├── SubtitleOverlay.tsx
+    │   │   └── ChatPanel.tsx
+    │   └── api/
+    │       └── realtimeClient.ts
+    └── public/
+
 ```
 
 ---
